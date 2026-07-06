@@ -40,3 +40,8 @@ As per the project requirements, the following features were implemented:
 •	EBITDA% = Divide(sum(Data[EBITDA]),sum(Data[Revenue]))
 
 •	Net Cash Flow: Sum(Data[Cash Inflows])-sum(Data[Cash Outflows]) - Tracks actual liquidity available at the end of each period
+
+Net Cash Waterfall = SWITCH(
+    SELECTEDVALUE('WaterfallTable'[Category]),
+    "Cash Inflows", SUM('Data'[Cash Inflows]),
+    "Cash Outflows", SUM('Data'[Cash Outflows]) * -1 )
